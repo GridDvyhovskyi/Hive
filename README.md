@@ -39,3 +39,7 @@ There are several additional steps in order to resolve the task:
         SELECT reg.hostname, reg.v1, reg.v2 FROM (SELECT metrics_v1.hostname, metrics_v1.metrics as v1, metrics_v2.metrics as v2 FROM metrics_v1 
         INNER JOIN metrics_v2 ON metrics_v1.hostname=metrics_v2.hostname AND metrics_v1.uuid=metrics_v2.uuid) reg 
         WHERE calculate_regression(reg.v1, reg.v2) IS NOT NULL;
+        
+# Result:
+laptop-12.garza.net	{'m1': 6600, 'm2': 2200, 'm3': 6100, 'm4': 8600, 'm5': 9800}	{'m1': 12012, 'm2': 4004, 'm3': 13054, 'm4': 15996, 'm5': 18228, 'm6': 49}
+lt-67.smith-haney.org	{'m1': 9400, 'm2': 5000, 'm3': 9600, 'm4': 900, 'm5': 1000}	{'m1': 19740, 'm2': 10200, 'm3': 19200, 'm4': 1944, 'm5': 2000, 'm6': 51}
